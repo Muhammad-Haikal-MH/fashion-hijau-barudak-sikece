@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoRags - Keranjang</title>
+  <link rel="shortcut icon" href="banner/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/lucide-css/dist/lucide.css" rel="stylesheet">
+</head>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#B2C9A5 ',
+            secondary: '#A0522D ',
+            accent: '#C0FFC0',
+             
+          }
+        }
+      }
+    }
+  </script>
+<body class="bg-gray-100">
+
+  <!-- Desktop Header -->
+  <header class="hidden md:block bg-primary p-4 shadow-sm">
+    <div class="container mx-auto flex items-center justify-between ">
+      <div class="flex items-center">
+        <img src="banner/logo.png" alt="" class="w-20">
+      </div>
+      <div class="flex-1 max-w-xl">
+        <div class="relative">
+          <input type="text" placeholder="Cari..." class="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
+          <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>       
+        </div>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="index.html" class="text-gray-700 hover:text-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </a>
+        <a href="edu4.html" class="text-gray-700 hover:text-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>        </a>
+        <a href="akun.html" class="text-gray-700 hover:text-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Header -->
+  <header class="md:hidden bg-primary p-3 flex items-center gap-2  ">
+    <div class="text-black font-bold">
+      <img src="banner/logo.png" alt="" class="w-20">
+    </div>
+    <div class="relative flex-1 flex items-center">
+      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <i class="fas fa-search text-gray-400"></i>
+      </div>
+      <input
+        type="search"
+        id="searchInput"
+        class="search-input bg-white w-full py-2 pl-10 pr-8 rounded-full text-sm "
+        placeholder="Search products..."
+      />
+      
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded-md text-sm" >
+         <a href="login.html">masuk</a>
+      </button>
+    </div>
+  </header>
+  
+  <!-- Mobile Navigation -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 z-20">
+    <div class="grid grid-cols-4 gap-1">
+      <a href="index.html" class="flex flex-col items-center justify-center text-xs text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Beranda</span>
+      </a>
+      <a href="keranjang.html" class="flex flex-col items-center justify-center text-xs text-gray-800">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>Keranjang</span>
+      </a>
+      <a href="edu4.html" class="flex flex-col items-center justify-center text-xs text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        <span>Edukasi</span>
+      </a>
+      <a href="akun.html" class="flex flex-col items-center justify-center text-xs text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+        <span>Akun</span>
+      </a>
+    </div>
+  </nav>
+  <!-- Main Content -->
+  <main class="container mx-auto py-6 px-4 mb-20 md:mb-0">
+    <div class="flex flex-col lg:flex-row gap-6">
+      <!-- Cart Items -->
+      <div class="flex-1">
+        <div class="flex justify-between items-center mb-6">
+          <h1 class="text-2xl font-bold">Keranjang</h1>
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="selectAll" class="rounded">
+            <label for="selectAll" class="text-sm">Pilih Semua</label>
+          </div>
+        </div>
+        
+        <div id="cartItems">
+          <!-- Cart Item 1 -->
+          <div class="bg-white rounded-lg shadow-sm mb-4 p-4" data-item-id="1">
+            <div class="flex items-start gap-4">
+              <input type="checkbox" class="mt-2 item-checkbox" data-price="25000">
+              <img src="https://images.unsplash.com/photo-1577655197620-704858b270ac" alt="Product" class="w-24 h-24 object-cover rounded-lg">
+              <div class="flex-1">
+                <h3 class="font-semibold">Eco Friendly Bag</h3>
+                <p class="text-gray-500 text-sm">Variant: Green</p>
+                <div class="mt-2 flex items-center gap-4">
+                  <p class="font-semibold">Rp25.000</p>
+                  <div class="flex items-center border rounded-lg">
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="decrease">-</button>
+                    <span class="px-3 py-1 border-x quantity">1</span>
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="increase">+</button>
+                  </div>
+                </div>
+              </div>
+              <button class="text-gray-400 hover:text-red-500 delete-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cart Item 2 -->
+          <div class="bg-white rounded-lg shadow-sm mb-4 p-4" data-item-id="2">
+            <div class="flex items-start gap-4">
+              <input type="checkbox" class="mt-2 item-checkbox" data-price="70000">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Product" class="w-24 h-24 object-cover rounded-lg">
+              <div class="flex-1">
+                <h3 class="font-semibold">Eco Sneakers</h3>
+                <p class="text-gray-500 text-sm">Size: 42</p>
+                <div class="mt-2 flex items-center gap-4">
+                  <p class="font-semibold">Rp70.000</p>
+                  <div class="flex items-center border rounded-lg">
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="decrease">-</button>
+                    <span class="px-3 py-1 border-x quantity">1</span>
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="increase">+</button>
+                  </div>
+                </div>
+              </div>
+              <button class="text-gray-400 hover:text-red-500 delete-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cart Item 3 -->
+          <div class="bg-white rounded-lg shadow-sm mb-4 p-4" data-item-id="3">
+            <div class="flex items-start gap-4">
+              <input type="checkbox" class="mt-2 item-checkbox" data-price="120000">
+              <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105" alt="Product" class="w-24 h-24 object-cover rounded-lg">
+              <div class="flex-1">
+                <h3 class="font-semibold">Organic Cotton T-Shirt</h3>
+                <p class="text-gray-500 text-sm">Size: L, Color: Navy</p>
+                <div class="mt-2 flex items-center gap-4">
+                  <p class="font-semibold">Rp120.000</p>
+                  <div class="flex items-center border rounded-lg">
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="decrease">-</button>
+                    <span class="px-3 py-1 border-x quantity">1</span>
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="increase">+</button>
+                  </div>
+                </div>
+              </div>
+              <button class="text-gray-400 hover:text-red-500 delete-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cart Item 4 -->
+          <div class="bg-white rounded-lg shadow-sm mb-4 p-4" data-item-id="4">
+            <div class="flex items-start gap-4">
+              <input type="checkbox" class="mt-2 item-checkbox" data-price="89000">
+              <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f" alt="Product" class="w-24 h-24 object-cover rounded-lg">
+              <div class="flex-1">
+                <h3 class="font-semibold">Bamboo Watch</h3>
+                <p class="text-gray-500 text-sm">Color: Brown</p>
+                <div class="mt-2 flex items-center gap-4">
+                  <p class="font-semibold">Rp89.000</p>
+                  <div class="flex items-center border rounded-lg">
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="decrease">-</button>
+                    <span class="px-3 py-1 border-x quantity">1</span>
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="increase">+</button>
+                  </div>
+                </div>
+              </div>
+              <button class="text-gray-400 hover:text-red-500 delete-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cart Item 5 -->
+          <div class="bg-white rounded-lg shadow-sm mb-4 p-4" data-item-id="5">
+            <div class="flex items-start gap-4">
+              <input type="checkbox" class="mt-2 item-checkbox" data-price="150000">
+              <img src="https://images.unsplash.com/photo-1491637639811-60e2756cc1c7" alt="Product" class="w-24 h-24 object-cover rounded-lg">
+              <div class="flex-1">
+                <h3 class="font-semibold">Recycled Denim Jacket</h3>
+                <p class="text-gray-500 text-sm">Size: M, Style: Vintage</p>
+                <div class="mt-2 flex items-center gap-4">
+                  <p class="font-semibold">Rp150.000</p>
+                  <div class="flex items-center border rounded-lg">
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="decrease">-</button>
+                    <span class="px-3 py-1 border-x quantity">1</span>
+                    <button class="px-3 py-1 hover:bg-gray-100 quantity-btn" data-action="increase">+</button>
+                  </div>
+                </div>
+              </div>
+              <button class="text-gray-400 hover:text-red-500 delete-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="lg:w-96">
+        <div class="bg-white rounded-lg shadow-sm p-6">
+          <h2 class="text-lg font-semibold mb-4">Ringkasan Belanja</h2>
+          
+          <div class="space-y-2 mb-4">
+            <div class="flex justify-between">
+              <span class="text-gray-600">Total Harga (<span id="selectedItemCount">0</span> barang)</span>
+              <span id="totalPrice">Rp0</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Total Diskon</span>
+              <span class="text-green-500" id="totalDiscount">-Rp0</span>
+            </div>
+          </div>
+          
+          <div class="border-t pt-4 mb-6">
+            <div class="flex justify-between font-semibold">
+              <span>Total Tagihan</span>
+              <span id="finalTotal">Rp0</span>
+            </div>
+          </div>
+
+          <button class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-800" id="checkoutBtn">
+            Beli (<span id="checkoutItemCount">0</span>)
+          </button>
+        </div>
+
+        <!-- Promo Code -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-4">
+          <h3 class="font-semibold mb-3">Kode Promo</h3>
+          <div class="flex gap-2">
+            <input type="text" placeholder="Masukkan kode promo" class="flex-1 border rounded-lg px-3 py-2">
+            <button class="bg-gray-200 px-4 py-2 rounded-lg font-medium hover:bg-gray-300">
+              Pakai
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </main>
+   <!-- Footer -->
+   <footer class="bg-white rounded-lg shadow-md mt-12 py-8">
+    <div class="container mx-auto px-4 lg:max-w-6xl">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Eco Rags</h3>
+          <p class="text-gray-600 text-sm mb-4">Temukan fashion terbaik untuk gaya hidupmu. Kami menyediakan berbagai pilihan pakaian, sepatu, dan aksesoris berkualitas tinggi.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-500 hover:text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Kategori</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li><a href="#" class="hover:text-primary">Pria</a></li>
+            <li><a href="#" class="hover:text-primary">Wanita</a></li>
+            <li><a href="#" class="hover:text-primary">Anak-anak</a></li>
+            <li><a href="#" class="hover:text-primary">Aksesoris</a></li>
+            <li><a href="#" class="hover:text-primary">Sepatu</a></li>
+            <li><a href="#" class="hover:text-primary">Tas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Informasi</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li><a href="#" class="hover:text-primary">Tentang Kami</a></li>
+            <li><a href="#" class="hover:text-primary">Kontak</a></li>
+            <li><a href="#" class="hover:text-primary">Kebijakan Privasi</a></li>
+            <li><a href="#" class="hover:text-primary">Syarat & Ketentuan</a></li>
+            <li><a href="#" class="hover:text-primary">FAQ</a></li>
+            <li><a href="#" class="hover:text-primary">Bantuan</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Hubungi Kami</h3>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-2 mt-0.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Jl. Fashion No. 123, Jakarta Selatan, Indonesia</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+62 123 4567 890</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mr-2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span>info@EcoRags.com</span>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+      <div class="border-t border-gray-200 mt-8 pt-6 flex justify-between items-center mb-10 md:mb-0">
+        <p class="text-sm text-gray-500">&copy; 2025 EcoRags. All rights reserved.</p>
+        <div class="flex flex-wrap space-x-4 gap-3">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa" class="h-4 md:h-6 md:w-18">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" class="h-4 md:h-6 md:w-18">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1280px-PayPal.svg.png" alt="PayPal" class="h-4 md:h-6 md:w-18">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartItems = document.getElementById('cartItems');
+      const selectAll = document.getElementById('selectAll');
+      const checkboxes = document.querySelectorAll('.item-checkbox');
+      const totalPriceElement = document.getElementById('totalPrice');
+      const totalDiscountElement = document.getElementById('totalDiscount');
+      const finalTotalElement = document.getElementById('finalTotal');
+      const selectedItemCountElement = document.getElementById('selectedItemCount');
+      const checkoutItemCountElement = document.getElementById('checkoutItemCount');
+
+      // Format currency to Rupiah
+      function formatRupiah(amount) {
+        return `Rp${amount.toLocaleString('id-ID')}`;
+      }
+
+      // Calculate total price of selected items
+      function calculateTotal() {
+        let total = 0;
+        let selectedCount = 0;
+        
+        checkboxes.forEach(checkbox => {
+          if (checkbox.checked) {
+            const itemContainer = checkbox.closest('[data-item-id]');
+            const quantity = parseInt(itemContainer.querySelector('.quantity').textContent);
+            const price = parseInt(checkbox.dataset.price);
+            total += price * quantity;
+            selectedCount++;
+          }
+        });
+
+        // Calculate discount (10% if total > 50000)
+        const discount = total > 50000 ? total * 0.1 : 0;
+        const finalTotal = total - discount;
+
+        // Update UI
+        totalPriceElement.textContent = formatRupiah(total);
+        totalDiscountElement.textContent = `-${formatRupiah(discount)}`;
+        finalTotalElement.textContent = formatRupiah(finalTotal);
+        selectedItemCountElement.textContent = selectedCount;
+        checkoutItemCountElement.textContent = selectedCount;
+      }
+
+      // Handle select all checkbox
+      selectAll.addEventListener('change', function() {
+        checkboxes.forEach(checkbox => {
+          checkbox.checked = this.checked;
+        });
+        calculateTotal();
+      });
+
+      // Handle individual checkboxes
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          const allChecked = Array.from(checkboxes).every(c => c.checked);
+          selectAll.checked = allChecked;
+          calculateTotal();
+        });
+      });
+
+      // Handle quantity buttons
+      document.querySelectorAll('.quantity-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const container = this.closest('[data-item-id]');
+          const quantityElement = container.querySelector('.quantity');
+          let quantity = parseInt(quantityElement.textContent);
+
+          if (this.dataset.action === 'increase') {
+            quantity++;
+          } else if (this.dataset.action === 'decrease' && quantity > 1) {
+            quantity--;
+          }
+
+          quantityElement.textContent = quantity;
+          calculateTotal();
+        });
+      });
+
+      // Handle delete buttons
+      document.querySelectorAll('.delete-item').forEach(button => {
+        button.addEventListener('click', function() {
+          const item = this.closest('[data-item-id]');
+          item.remove();
+          calculateTotal();
+
+          // Update select all checkbox if no items remain
+          if (document.querySelectorAll('[data-item-id]').length === 0) {
+            selectAll.checked = false;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

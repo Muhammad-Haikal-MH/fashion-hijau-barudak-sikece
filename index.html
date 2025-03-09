@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e commerce terlengkap</title>
+  <link rel="shortcut icon" href="banner/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <link href="https://unpkg.com/lucide-css/dist/lucide.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#B2C9A5 ',
+            secondary: '#A0522D ',
+            accent: '#C0FFC0',
+             
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+
+    .carousel-item {
+      transition: transform 0.5s ease;
+    }
+    .container{
+
+      max-width: 1200px;
+    }
+
+    .animate-scale {
+    animation: scale 1s infinite;
+    animation-delay: var(--animate-scale-delay);
+  }
+  .delay-100 {
+    --animate-scale-delay: 100ms;
+  }
+  
+  .delay-200 {
+    --animate-scale-delay: 200ms;
+  }
+  
+  .delay-400 {
+    --animate-scale-delay: 400ms;
+  }
+  #preloader.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#preloader.fade-out .loader {
+  animation: none;
+  transform: translateX(1/2) translateY(1/2) scale(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+@keyframes scale {
+    0%,100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
+
+  </style>
+</head>
+<body class="bg-gray-200">
+
+  <div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white dark:bg-dark z-[9999] transition-opacity duration-500 ease-in-out">
+    <div class="loader absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] flex justify-between items-center">
+        <div class="circle w-[20px] h-[20px] rounded-full bg-[#333] animate-scale delay-100"></div>
+        <div class="circle w-[20px] h-[20px] rounded-full bg-[#333] animate-scale delay-200"></div>
+        <div class="circle w-[20px] h-[20px] rounded-full bg-[#333] animate-scale delay-400"></div>
+    </div>
+</div>
+
+  <!-- Desktop Header -->
+  <header class="hidden md:block bg-primary p-4 shadow-sm">
+    <div class="container mx-auto flex items-center justify-between ">
+      <div class="flex items-center">
+        <img src="banner/logo.png" alt="" class="w-20">
+      </div>
+      <div class="flex-1 max-w-xl">
+        <div class="relative">
+          <input type="text" placeholder="Cari..." class="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
+          <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
+          
+        </div>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="keranjang.html" class="text-gray-700 hover:text-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        </a>
+        <a href="edu4.html" class="text-gray-700 hover:text-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        </a>
+        <a href="akun.html" class="text-gray-700 hover:text-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Header -->
+  <header class="md:hidden bg-primary p-3 flex items-center gap-2 mx-auto">
+    <div class="text-black font-bold">
+      <img src="banner/logo.png" alt="" class="w-20">
+    </div>
+    <div class="relative flex-1 flex items-center">
+      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <i class="fas fa-search text-gray-400"></i>
+      </div>
+      <input
+        type="search"
+        id="searchInput"
+        class="search-input bg-white w-full py-2 pl-10 pr-8 rounded-full text-sm "
+        placeholder="Search products..."
+      />
+      
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded-md text-sm" >
+         <a href="Login.html">masuk</a>
+      </button>
+    </div>
+  </header>
+
+   <!-- Mobile Navigation -->
+   <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 z-20">
+    <div class="grid grid-cols-4 gap-1">
+      <a href="#" class="flex flex-col items-center justify-center text-xs text-gray-800">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Beranda</span>
+      </a>
+      <a href="keranjang.html" class="flex flex-col items-center justify-center text-xs text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>Keranjang</span>
+      </a>
+      <a href="edu4.html" class="flex flex-col items-center justify-center text-xs text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        <span>Edukasi</span>
+      </a>
+      <a href="akun.html" class="flex flex-col items-center justify-center text-xs text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+        <span>Akun</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Desktop Main Content -->
+
+    <!-- Hero Banner Carousel -->
+    <section class="mb-8 pt-6">
+      <div class="container mx-auto lg:max-w-6xl">
+        <div class="relative">
+          <div class="overflow-hidden rounded-lg">
+            <div class="flex transition-transform duration-300" id="desktop-carousel">
+              <div class="w-full flex-shrink-0">
+                <img src="banner/limbah.png" alt="" class="w-full md:h-80 bg-center bg-cover">
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="banner/Diskon.png" alt="" class="w-full md:h-80 bg-center bg-cover">
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="banner/Cashback.png" alt="" class="w-full md:h-80 bg-center bg-cover ">
+              </div>
+            </div>
+          </div>
+          <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/70 rounded-full p-2 shadow-md hover:bg-white transition" id="desktop-prevBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/70 rounded-full p-2 shadow-md hover:bg-white transition" id="desktop-nextBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition desktop-dot active" data-index="0"></button>
+            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition desktop-dot" data-index="1"></button>
+            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition desktop-dot" data-index="2"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Categories -->
+     <section class="mb-3">
+
+       <div class="mx-auto container lg:max-w-6xl">
+         <h2 class="text-lg md:text-2xl font-medium mb-2">Promo Ramadhan sale</h2>
+         <div class="bg-gray-100 p-3 rounded-lg">
+           <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+             <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+               <img
+                 src="https://images.unsplash.com/photo-1577655197620-704858b270ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                 alt="Product"
+                 class="w-full h-52 md:h-72 object-cover"
+               />
+             </div>
+             <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+               <img
+                 src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                 alt="Product"
+                 class="w-full h-52 md:h-72 object-cover"
+               />
+               
+             </div>
+             <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+               <img
+                 src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                 alt="Product"
+                 class="w-full h-52 md:h-72 object-cover"
+               />
+               
+             </div>
+             <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+               <img
+                 src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                 alt="Product"
+                 class="w-full h-52 md:h-72 object-cover"
+               />
+               
+             </div>
+           </div>
+         </div>
+       </div>
+
+     </section>
+
+    <!-- Product categories pria -->
+     <section>
+
+       <div class="mx-auto container lg:max-w-6xl">
+         <h2 class=" font-medium mb-2 mx-3 text-lg md:text-2xl">kategori Pria</h2>
+          <div class="grid grid-cols-4 grid-rows-6 gap-2 w-full h-96 bg-gray-100 rounded-lg p-2 shadow-lg lg:grid-cols-6 lg:grid-rows-4 ">
+             <div class="text-white flex justify-center items-center col-span-2 row-span-4 rounded-lg lg:col-span-2 lg:row-span-4 overflow-hidden">
+               <div class="swiper mySwiper h-full w-full z-0">
+                 <div class="swiper-wrapper">
+                   <div class="swiper-slide flex justify-center items-center h-full w-full">
+                    <img src="man/1.jpg" alt="" class="w-full h-full object-cover"> 
+                   </div>
+                   <div class="swiper-slide  flex justify-center items-center h-full w-full">
+                    <img src="man/2.jpg" alt="" class="object-cover w-full h-full">
+                   </div>
+                   <div class="swiper-slide  flex justify-center items-center h-screen w-full">
+                    <img src="woman/3.jpg" alt="" class="w-full h-full object-cover">
+                  </div>
+                 </div>
+                 <div class="swiper-button-next transform scale-50 md:scale-90 text-gray-500"></div>
+                 <div class="swiper-button-prev transform scale-50 md:scale-90 text-gray-500"></div>
+                 <div class="swiper-pagination"></div>
+               </div>
+             </div>
+             <div class=" text-white flex justify-center items-center col-span-2 row-span-2 col-start-3 rounded-lg lg:col-span-2 lg:row-span-2 lg:col-start-3 overflow-hidden">
+              <img src="man/4.jpg" alt="" class="w-full h-full object-cover bg-center">
+             </div>
+             <div class=" text-white flex justify-center items-center col-span-2 row-span-2 col-start-1 row-start-5 rounded-lg lg:col-span-2 lg:row-span-2 lg:col-start-3 lg:row-start-3 lg:rounded-xl overflow-hidden">
+              <img src="woman/1.webp" alt="" class="w-full h-full object-cover">
+             </div>
+             <div class=" text-white flex justify-center items-center col-span-2 row-span-2 col-start-3 row-start-3 rounded-lg lg:col-span-2 lg:row-span-2 lg:col-start-5 lg:row-start-1 overflow-hidden">
+              <img src="woman/1.png" alt="" class="w-full h-full object-cover">
+             </div>
+             <div class=" text-white flex justify-center items-center col-span-2 row-span-2 col-start-3 row-start-5 rounded-lg lg:col-span-2 lg:row-span-2 lg:col-start-5 lg:row-start-3 overflow-hidden">
+              <img src="woman/4.jpg" alt="" class="w-full h-full object-cover">
+             </div>
+          </div>
+ 
+       </div>
+     </section>
+<!-- Category filter for men's products -->
+     <div class="mb-3 flex space-x-2 overflow-x-auto pb-1 mt-10 mx-auto container lg:max-w-6xl">
+       <button
+         data-category="all"
+         data-section="men"
+         class="category-filter bg-gray-800 text-white px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+         All
+       </button>
+       <button
+         data-category="kemeja"
+         data-section="men"
+         class="category-filter bg-gray-300 px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+         Kemeja
+       </button>
+       <button
+         data-category="kaos"
+         data-section="men"
+         class="category-filter bg-gray-300 px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+         Kaos
+       </button>
+       <button
+         data-category="celana"
+         data-section="men"
+         class="category-filter bg-gray-300 px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+         Celana
+       </button>
+
+       <button
+         data-category="sepatu"
+         data-section="men"
+         class="category-filter bg-gray-300 px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+         Sepatu
+       </button>
+     </div>
+
+     <!-- Men's Product list -->
+     <div id="menProductList" class="mx-auto container lg:max-w-6xl mb-3 grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+       <!-- Products will be dynamically inserted here -->
+     </div>
+
+
+
+     <!-- Product categories wanita -->
+     <div class="mx-auto container lg:max-w-6xl">
+      <h2 class="text-lg md:text-2xl font-medium mb-2 mx-3">kategori Wanita</h2>
+      <div class="grid grid-cols-4 grid-rows-6 gap-2 w-full h-96 rounded-lg bg-gray-100 p-2 shadow-lg lg:grid-cols-6 lg:grid-rows-4">
+          
+          <div class="text-white flex justify-center items-center col-span-2 row-span-4 rounded-lg lg:col-span-2 lg:row-span-4 overflow-hidden">
+            <div class="swiper mySwiper h-full w-full z-0">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide  flex justify-center items-center h-full w-full">
+                  <img src="woman/fashionw2.jpg" alt="" class="w-full h-full object-cover"> 
+                </div>
+                <div class="swiper-slide  flex justify-center items-center h-full w-full">
+                  <img src="woman/fashionw3.jpg" alt="" class="w-full h-full object-cover"> 
+                </div>
+                
+                <div class="swiper-slide  flex justify-center items-center h-full w-full">
+                  <img src="woman/fashionw6.jpeg" alt="" class="w-full h-full object-cover"> 
+                </div>
+                
+              </div>
+              <div class="swiper-button-next transform scale-50 md:scale-90 text-gray-500"></div>
+              <div class="swiper-button-prev transform scale-50 md:scale-90 text-gray-500"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class=" text-white flex justify-center items-center col-span-2 row-span-2 col-start-3 rounded-lg lg:col-span-2 lg:row-span-2 lg:col-start-3 overflow-hidden">
+            <img src="woman/fashionw.jpeg" alt="" class="w-full h-full object-cover bg-center">
+          </div>
+          <div class=" text-white flex justify-center items-center col-span-2 row-span-2 col-start-1 row-start-5 rounded-lg lg:col-span-2 lg:row-span-2 lg:col-start-3 lg:row-start-3 lg:rounded-xl overflow-hidden">
+            <img src="woman/fashionw7.jpg" alt="" class="w-full h-full object-cover bg-center">
+          </div>
+          <div class=" text-white flex justify-center items-center col-span-2 row-span-2 col-start-3 row-start-3 rounded-lg lg:col-span-2 lg:row-span-2 lg:col-start-5 lg:row-start-1 overflow-hidden">
+            <img src="woman/fashionw8.webp" alt="" class="w-full h-full object-cover bg-center">
+          </div>
+          <div class=" text-white flex justify-center items-center col-span-2 row-span-2 col-start-3 row-start-5 rounded-lg lg:col-span-2 lg:row-span-2 lg:col-start-5 lg:row-start-3 overflow-hidden ">
+            <img src="woman/fashionw9.webp" alt="" class="w-full h-full object-cover bg-center">
+          </div>
+      </div>
+
+    </div>
+
+     <!-- Category filter for women's products -->
+     <div class="mx-auto container lg:max-w-6xl mb-3 flex space-x-2 overflow-x-auto pb-1 mt-10">
+       <button
+         data-category="all"
+         data-section="women"
+         class="category-filter bg-gray-800 text-white px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+         All
+       </button>
+       <button
+         data-category="kemeja"
+         data-section="women"
+         class="category-filter bg-gray-300 px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+         Kemeja
+       </button>
+       <button
+         data-category="celana"
+         data-section="women"
+         class="category-filter bg-gray-300 px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+         Celana
+       </button>
+       <button
+         data-category="sweater"
+         data-section="women"
+         class="category-filter bg-gray-300 px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+         Sweater
+       </button>
+       <button
+       data-category="sepatu"
+       data-section="women"
+       class="category-filter bg-gray-300 px-4 py-3 rounded-full text-xs whitespace-nowrap"
+       >
+       Sepatu
+      </button>
+    </div>
+    </div>
+
+     <!-- Women's Product list -->
+     <div id="womenProductList" class="mx-auto container lg:max-w-6xl mb-3 grid grid-cols-2 md:grid-cols-4 gap-3 mt-10">
+       <!-- Products will be dynamically inserted here -->
+     </div>
+    <div>
+
+  <div class="mx-auto container lg:max-w-6xl">
+    <h2 class="text-lg md:text-2xl font-medium mx-auto container">Tukar Tambah</h2>
+
+    <div class="grid grid-cols-2 gap-3 md:gap-5">
+        <div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg my-6 w-full">
+            <div class="m-2.5 overflow-hidden rounded-md md:h-80 flex justify-center items-center">
+              <img class="w-72 object-cover rounded-lg aspect-square" src="woman/tukar.jpeg" alt="profile-picture" />
+            </div>
+            <div class="p-6 text-center">
+              <h4 class="mb-1 text-lg md:text-xl font-semibold text-slate-800">
+                kemeja hitam
+              </h4>
+              <p
+                class="text-sm font-semibold text-slate-500">
+                deskripsi: kemeja ini telah dpakai selama 3 bulan dan kondisi bagus 
+              </p>
+              <p class="text-base text-slate-600 font-light ">
+                  ukruran: m <br>
+                  kondisi: bagus <br>
+                  harga: Rp100.000
+              </p>
+            </div>
+            
+            <div class="flex justify-center">
+              <button class="min-w-32  rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                barang yang ditukar
+              </button>
+            </div>
+          </div>
+
+        <div class=" bg-white shadow-sm border border-slate-200 rounded-lg my-6 w-full mx-auto container">
+          
+          <div class=" text-white col-span-2 row-span-4 rounded-lg lg:col-span-2 lg:row-span-4 overflow-hidden">
+            <div class="swiper mySwiper2 h-full w-full z-0">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide  h-full w-full">
+                  <div class="m-2.5 overflow-hidden rounded-md md:h-80 flex justify-center items-center">
+                    <img class="w-72 object-cover rounded-lg aspect-square" src="woman/kemeja.jpg" alt="profile-picture" />
+                  </div>
+                  <div class="p-6 text-center">
+                    <h4 class="mb-1 text-lg md:text-xl font-semibold text-slate-800">
+                      Kemeja putih
+                    </h4>
+                    <p
+                      class="text-sm font-semibold text-slate-500 ">
+                      deskripsi: kemeja telah dipakai selama 1 bulan dan kondisi bagus
+                    </p>
+                    <p class="text-base text-slate-600 font-light ">
+                      ukruran: m <br>
+                      kondisi: seperti baru <br>
+                      harga: Rp120.000
+                    </p>
+                  </div>
+                  <div class="flex justify-center">
+                    <button class="min-w-32  rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                      barang yang diinginkan
+                    </button>
+                  </div>
+
+                </div>
+
+                <div class="swiper-slide  h-full w-full">
+                  <div class="m-2.5 overflow-hidden rounded-md md:h-80 flex justify-center items-center">
+                    <img class="w-72 object-cover rounded-lg aspect-square" src="woman/sweater.webp" alt="profile-picture" />
+                  </div>
+                  <div class="p-6 text-center">
+                    <h4 class="mb-1 text-lg md:text-xl font-semibold text-slate-800">
+                      Sweater
+                    </h4>
+                    <p
+                      class="text-sm font-semibold text-slate-500 ">
+                      deskripsi: kemeja telah dipakai selama 2 bulan dan kondisi seperti baru
+                    </p>
+                    <p class="text-base text-slate-600 font-light ">
+                      ukruran: m <br>
+                      kondisi: seperti baru <br>
+                      harga: Rp149.000
+                    </p>
+                  </div>
+                  <div class="flex justify-center ">
+                    <button class="min-w-32  rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                      barang yang diinginkan
+                    </button>
+                  </div>
+
+                </div>
+
+                <div class="swiper-slide  h-full w-full">
+                  <div class="m-2.5 overflow-hidden rounded-md md:h-80 flex justify-center items-center">
+                    <img class="w-72 object-cover rounded-lg aspect-square" src="woman/sweater2.avif" alt="profile-picture" />
+                  </div>
+                  <div class="p-6 text-center">
+                    <h4 class="mb-1 text-lg md:text-xl font-semibold text-slate-800">
+                      sweater rajut
+                    </h4>
+                    <p
+                      class="text-sm font-semibold text-slate-500 ">
+                      deskripsi: kemeja telah dipakai selama 5 bulan dan kondisi lumayan
+                    </p>
+                    <p class="text-base text-slate-600 font-light ">
+                      ukruran: s <br>
+                      kondisi: bagus <br>
+                      harga: Rp99.000
+                    </p>
+                  </div>
+                  <div class="flex justify-center">
+                    <button class="min-w-32 rounded-md mb-5 bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                      barang yang diinginkan
+                    </button>
+                  </div>
+
+                </div>
+
+                
+              </div>
+              <div class="swiper-button-next transform scale-50 md:scale-90 text-gray-500"></div>
+              <div class="swiper-button-prev transform scale-50 md:scale-90 text-gray-500"></div>
+            </div>
+          </div>
+
+          </div>
+
+          <div id="modal" data-aos="zoom-in" class="transform transition-all duration-500 ease-in">
+
+          </div>
+    </div>
+  </div>
+      
+    <!-- Footer -->
+    <footer class="bg-white rounded-lg shadow-md mt-12 py-8">
+      <div class="container mx-auto px-4 lg:max-w-6xl">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Eco Rags</h3>
+            <p class="text-gray-600 text-sm mb-4">Temukan fashion terbaik untuk gaya hidupmu. Kami menyediakan berbagai pilihan pakaian, sepatu, dan aksesoris berkualitas tinggi.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-500 hover:text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Kategori</h3>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="#" class="hover:text-primary">Pria</a></li>
+              <li><a href="#" class="hover:text-primary">Wanita</a></li>
+              <li><a href="#" class="hover:text-primary">Anak-anak</a></li>
+              <li><a href="#" class="hover:text-primary">Aksesoris</a></li>
+              <li><a href="#" class="hover:text-primary">Sepatu</a></li>
+              <li><a href="#" class="hover:text-primary">Tas</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Informasi</h3>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="#" class="hover:text-primary">Tentang Kami</a></li>
+              <li><a href="#" class="hover:text-primary">Kontak</a></li>
+              <li><a href="#" class="hover:text-primary">Kebijakan Privasi</a></li>
+              <li><a href="#" class="hover:text-primary">Syarat & Ketentuan</a></li>
+              <li><a href="#" class="hover:text-primary">FAQ</a></li>
+              <li><a href="#" class="hover:text-primary">Bantuan</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Hubungi Kami</h3>
+            <ul class="space-y-3 text-sm text-gray-600">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-2 mt-0.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Jl. Fashion No. 123, Jakarta Selatan, Indonesia</span>
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+62 123 4567 890</span>
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mr-2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>info@EcoRags.com</span>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+        <div class="border-t border-gray-200 mt-8 pt-6 flex justify-between items-center mb-10 md:mb-0">
+          <p class="text-sm text-gray-500">&copy; 2025 EcoRags. All rights reserved.</p>
+          <div class="flex flex-wrap space-x-4 gap-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa" class="h-4 md:h-6 md:w-18">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" class="h-4 md:h-6 md:w-18">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1280px-PayPal.svg.png" alt="PayPal" class="h-4 md:h-6 md:w-18">
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <!-- back to top start -->
+  <a href="#" id="tutop" class="hidden h-12 w-12 md:h-14 md:w-14 bg-primary rounded-full fixed z-[9999] bottom-16 md:bottom-6 right-4 p-4  justify-center items-center hover:animate-pulse">
+    <span class="block h-4 w-4 border-t-2 border-l-2 rotate-45 mt-2"></span>
+  </a>
+ <!-- back to top end -->
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="percobaan.js"> </script>
+</body>
+</html>

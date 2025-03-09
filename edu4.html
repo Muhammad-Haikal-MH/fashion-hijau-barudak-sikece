@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="banner/logo.png">
+    <title>EcoRags - Edukasi </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+.pattern-grid {
+  background-image: radial-gradient(circle, #4ade80 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* 3D Card Effects */
+.perspective-container {
+  perspective: 1000px;
+}
+
+.card-3d {
+  height: 300px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Timeline */
+.timeline-dot {
+  position: relative;
+}
+
+.timeline-dot::before {
+  content: attr(data-year);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: theme('colors.emerald.800');
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Quiz Styles */
+.option-btn {
+  transition: all 0.3s ease;
+}
+
+.option-btn:hover:not([disabled]) {
+  transform: translateX(10px);
+}
+
+.option-btn[disabled] {
+  cursor: not-allowed;
+}
+
+/* Process Flow */
+.process-step {
+  transition: all 0.3s ease;
+}
+
+.progress {
+  transition: width 1s ease-in-out;
+}
+
+.animate-scale {
+    animation: scale 1s infinite;
+    animation-delay: var(--animate-scale-delay);
+  }
+  .delay-100 {
+    --animate-scale-delay: 100ms;
+  }
+  
+  .delay-200 {
+    --animate-scale-delay: 200ms;
+  }
+  
+  .delay-400 {
+    --animate-scale-delay: 400ms;
+  }
+  #preloader.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#preloader.fade-out .loader {
+  animation: none;
+  transform: translateX(1/2) translateY(1/2) scale(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+@keyframes scale {
+    0%,100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-emerald-50 to-teal-50">
+
+    <div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white dark:bg-dark z-[9999] transition-opacity duration-500 ease-in-out">
+      <div class="loader absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] flex justify-between items-center">
+          <div class="circle w-[20px] h-[20px] rounded-full bg-[#333] animate-scale delay-100"></div>
+          <div class="circle w-[20px] h-[20px] rounded-full bg-[#333] animate-scale delay-200"></div>
+          <div class="circle w-[20px] h-[20px] rounded-full bg-[#333] animate-scale delay-400"></div>
+      </div>
+  </div>
+  
+    <div id="app" class="min-h-screen">
+
+      <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 z-20">
+        <div class="grid grid-cols-4 gap-1">
+          <a href="index.html" class="flex flex-col items-center justify-center text-xs text-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Beranda</span>
+          </a>
+          <a href="keranjang.html" class="flex flex-col items-center justify-center text-xs text-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span>Keranjang</span>
+          </a>
+          <a href="#" class="flex flex-col items-center justify-center text-xs text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+            <span>Edukasi</span>
+          </a>
+          <a href="akun.html" class="flex flex-col items-center justify-center text-xs text-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            <span>Akun</span>
+          </a>
+        </div>
+      </nav>
+      <!-- Interactive Hero Section -->
+      <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 pattern-grid opacity-5"></div>
+        <div class="relative z-10 text-center px-4">
+          <h1 class="text-5xl md:text-7xl font-bold text-emerald-800 mb-8 transform transition-all duration-700 hover:scale-105">
+            Fashion Hijau
+            <span class="block text-emerald-600">Berkelanjutan</span>
+          </h1>
+          <p class="text-xl text-gray-600 mb-32 max-w-3xl mx-auto">
+            Jelajahi dunia fashion berkelanjutan
+          </p>
+          <div class="scroll-indicator animate-bounce mt-6 cursor-pointer">
+            <svg class="w-8 h-8 mx-auto text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Learning Sections -->
+      <section class="py-20 px-4">
+
+        <h2 class="text-4xl font-bold text-center text-emerald-800 mb-12">Informasi Fashion Berkelanjutan</h2>
+            <div class="swiper mySwiper max-w-4xl mx-auto mb-20">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide bg-emerald-100 p-6 rounded-lg shadow-md text-center">
+                        <h3 class="text-xl font-bold text-emerald-800">Penggunaan Bahan Ramah Lingkungan</h3>
+                        <p class="text-gray-600 mt-2">Banyak brand mulai menggunakan material daur ulang dan organik.</p>
+                    </div>
+                    <div class="swiper-slide bg-emerald-200 p-6 rounded-lg shadow-md text-center">
+                        <h3 class="text-xl font-bold text-emerald-800">Produksi Berkelanjutan</h3>
+                        <p class="text-gray-600 mt-2">Teknik produksi yang lebih hemat energi dan air semakin berkembang.</p>
+                    </div>
+                    <div class="swiper-slide bg-emerald-300 p-6 rounded-lg shadow-md text-center">
+                        <h3 class="text-xl font-bold text-emerald-800">Daur Ulang Pakaian</h3>
+                        <p class="text-gray-600 mt-2">Mendorong konsumen untuk mendaur ulang pakaian yang tidak terpakai.</p>
+                    </div>
+                </div>
+                <div class="swiper-pagination scale-125 text-gray-800"></div>
+            </div>
+
+
+          <!-- Interactive Timeline -->
+          <div class="timeline-section mb-32">
+            <h2 class="text-4xl font-bold text-center text-emerald-800 mb-12">Perjalanan Fashion Berkelanjutan</h2>
+            <div class="timeline-container relative">
+              <div class="timeline-line absolute left-1/2 top-0 w-1 h-full bg-emerald-200 transform -translate-x-1/2"></div>
+              <div class="timeline-events space-y-24">
+                <div class="timeline-event" data-year="2010">
+                  <div class="flex items-center justify-center mb-4">
+                    <div class="timeline-dot w-6 h-6 rounded-full bg-emerald-500 shadow-lg"></div>
+                  </div>
+                  <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto transform hover:scale-105 transition-transform">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-2">Awal Kesadaran</h3>
+                    <p class="text-gray-600">Munculnya gerakan slow fashion dan kesadaran akan dampak lingkungan</p>
+                  </div>
+                </div>
+
+                <div class="timeline-event" data-year="2015">
+                  <div class="flex items-center justify-center mb-4">
+                    <div class="timeline-dot w-6 h-6 rounded-full bg-emerald-500 shadow-lg"></div>
+                  </div>
+                  <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto transform hover:scale-105 transition-transform">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-2">Inovasi Material</h3>
+                    <p class="text-gray-600">Pengembangan material ramah lingkungan dan teknologi daur ulang</p>
+                  </div>
+                </div>
+
+                <div class="timeline-event" data-year="2020">
+                  <div class="flex items-center justify-center mb-4">
+                    <div class="timeline-dot w-6 h-6 rounded-full bg-emerald-500 shadow-lg"></div>
+                  </div>
+                  <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto transform hover:scale-105 transition-transform">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-2">Era Digital</h3>
+                    <p class="text-gray-600">Transformasi digital dalam rantai pasok berkelanjutan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Process Flow -->
+          <div class="process-flow mb-32">
+            <h2 class="text-4xl font-bold text-center text-emerald-800 mb-12">Proses Produksi Berkelanjutan</h2>
+            <div class="flow-container relative">
+              <div class="grid md:grid-cols-4 gap-8">
+                <div class="process-step bg-white p-6 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform">
+                  <div class="step-number w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xl mb-4">1</div>
+                  <h3 class="text-xl font-bold text-emerald-800 mb-2">Pemilihan Material</h3>
+                  <p class="text-gray-600">Seleksi bahan baku berkelanjutan dan ramah lingkungan</p>
+                  <div class="progress-bar mt-4 h-2 bg-emerald-100 rounded-full overflow-hidden">
+                    <div class="progress w-0 h-full bg-emerald-500 transition-all duration-1000"></div>
+                  </div>
+                </div>
+
+                <div class="process-step bg-white p-6 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform">
+                  <div class="step-number w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xl mb-4">2</div>
+                  <h3 class="text-xl font-bold text-emerald-800 mb-2">Pengolahan</h3>
+                  <p class="text-gray-600">Proses produksi dengan teknologi hemat energi</p>
+                  <div class="progress-bar mt-4 h-2 bg-emerald-100 rounded-full overflow-hidden">
+                    <div class="progress w-0 h-full bg-emerald-500 transition-all duration-1000"></div>
+                  </div>
+                </div>
+
+                <div class="process-step bg-white p-6 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform">
+                  <div class="step-number w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xl mb-4">3</div>
+                  <h3 class="text-xl font-bold text-emerald-800 mb-2">Quality Control</h3>
+                  <p class="text-gray-600">Pemeriksaan kualitas dan standar keberlanjutan</p>
+                  <div class="progress-bar mt-4 h-2 bg-emerald-100 rounded-full overflow-hidden">
+                    <div class="progress w-0 h-full bg-emerald-500 transition-all duration-1000"></div>
+                  </div>
+                </div>
+
+                <div class="process-step bg-white p-6 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform">
+                  <div class="step-number w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xl mb-4">4</div>
+                  <h3 class="text-xl font-bold text-emerald-800 mb-2">Distribusi</h3>
+                  <p class="text-gray-600">Pengiriman dengan jejak karbon minimal</p>
+                  <div class="progress-bar mt-4 h-2 bg-emerald-100 rounded-full overflow-hidden">
+                    <div class="progress w-0 h-full bg-emerald-500 transition-all duration-1000"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Production Section -->
+        <div class="education-section min-h-screen flex items-center bg-nature/10 p-8">
+          <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" alt="Sustainable Production" class="rounded-xl shadow-2xl order-2 md:order-1">
+            <div class="space-y-6 order-1 md:order-2">
+              <h2 class="text-4xl font-bold text-emerald-800">Prinsip Fashion Berkelanjutan</h2>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 bg-white rounded-xl shadow-lg">
+                  <div class="text-3xl mb-2">♻️</div>
+                  <h3 class="font-semibold mb-2 text-emerald-800">Reduce</h3>
+                  <p class="text-sm">Kurangi konsumsi pakaian yang tidak perlu</p>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-lg">
+                  <div class="text-3xl mb-2">🔄</div>
+                  <h3 class="font-semibold mb-2 text-emerald-800">Reuse</h3>
+                  <p class="text-sm">Gunakan kembali pakaian dengan cara mix & match atau donasi</p>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-lg">
+                  <div class="text-3xl mb-2">🛠️</div>
+                  <h3 class="font-semibold mb-2 text-emerald-800">Repair</h3>
+                  <p class="text-sm">Perbaiki pakaian yang rusak agar lebih awet</p>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-lg">
+                  <div class="text-3xl mb-2">🌱</div>
+                  <h3 class="font-semibold mb-2 text-emerald-800">Recycle</h3>
+                  <p class="text-sm">Daur ulang bahan pakaian menjadi produk baru</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+          <div class="grid gap-8">
+            <!-- Materials Section -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <button class="topic-header w-full p-6 flex justify-between items-center bg-eco-green">
+                <h2 class="text-2xl font-bold text-emerald-800">Material Berkelanjutan</h2>
+                <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="topic-content max-h-0 overflow-hidden transition-all duration-500">
+                <div class="p-6 space-y-6">
+                  <!-- Timeline -->
+                  <div class="relative">
+                    <div class="absolute left-4 top-0 h-full w-0.5 bg-eco-green"></div>
+                    <div class="material-timeline space-y-8 pl-12">
+                      <div class="relative">
+                        <div class="absolute -left-12 top-2 w-4 h-4 rounded-full bg-eco-green"></div>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-2">Katun Organik</h3>
+                        <p class="text-gray-600">Ditanam tanpa pestisida berbahaya, menggunakan metode pertanian organik yang menjaga kesuburan tanah.</p>
+                        <ul class="mt-3 space-y-2">
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">✓</span>
+                            Bebas bahan kimia berbahaya
+                          </li>
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">✓</span>
+                            Hemat air hingga 90%
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="relative">
+                        <div class="absolute -left-12 top-2 w-4 h-4 rounded-full bg-eco-green"></div>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-2">Hemp</h3>
+                        <p class="text-gray-600">Serat alami yang tumbuh cepat dan membutuhkan sedikit air.</p>
+                        <ul class="mt-3 space-y-2">
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">✓</span>
+                            Tumbuh tanpa pestisida
+                          </li>
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">✓</span>
+                            Memperbaiki kualitas tanah
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Production Process -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <button class="topic-header w-full p-6 flex justify-between items-center bg-leaf ">
+                <h2 class="text-2xl font-bold text-emerald-800">Fast Fashion vs Slow Fashion</h2>
+                <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="topic-content max-h-0 overflow-hidden transition-all duration-500">
+                <div class="p-6">
+                  <!-- Process Steps -->
+                  <div class="process-steps grid md:grid-cols-2 gap-6">
+                    <div class="step-card bg-gray-50 p-6 rounded-xl">
+                      <div class="flex items-center mb-4">
+                        <span class="text-2xl mr-4">🛍️</span>
+                        <h3 class="text-xl font-semibold text-leaf text-emerald-800">Fast Fashion</h3>
+                      </div>
+                      <p class="text-gray-600">Fast fashion adalah sistem produksi pakaian dengan model bisnis yang cepat, murah, dan berumur pendek. Merek fast fashion sering kali meniru tren runway dan mengeluarkan koleksi baru dalam hitungan minggu untuk menarik konsumen membeli lebih banyak.</p>
+                      <div class="mt-4 p-4 bg-white rounded-lg">
+                        <h4 class="font-semibold text-leaf mb-2 text-emerald-800">Ciri-Ciri Fast Fashion:</h4>
+                        <ul class="space-y-2">
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">•</span>
+                            Produksi massal, cepat, dan murah
+                          </li>
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">•</span>
+                            Kualitas rendah, cepat rusak
+                          </li>
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">•</span>
+                            Banyak limbah dan polusi lingkungan
+                          </li>
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">•</span>
+                            Eksploitasi tenaga kerja murah
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="step-card bg-gray-50 p-6 rounded-xl">
+                      <div class="flex items-center mb-4">
+                        <span class="text-2xl mr-4">🌿</span>
+                        <h3 class="text-xl font-semibold text-leaf text-emerald-800">Slow Fashion</h3>
+                      </div>
+                      <p class="text-gray-600">Slow fashion adalah kebalikan dari fast fashion, di mana fokusnya adalah kualitas, etika, dan keberlanjutan. Pakaian slow fashion dirancang untuk bertahan lama dan diproduksi dengan cara yang lebih ramah lingkungan serta memperhatikan kesejahteraan pekerja</p>
+                      <div class="mt-4 p-4 bg-white rounded-lg">
+                        <h4 class="font-semibold text-leaf mb-2 text-emerald-800">Ciri-Ciri Slow Fashion:</h4>
+                        <ul class="space-y-2">
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">•</span>
+                            Produksi lebih lambat & berkualitas tinggi
+                          </li>
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">•</span>
+                            Mengutamakan bahan berkelanjutan
+                          </li>
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">•</span>
+                            Mempromosikan konsumsi yang lebih sadar
+                          </li>
+                          <li class="flex items-center text-gray-600">
+                            <span class="mr-2">•</span>
+                            Menghargai kesejahteraan pekerja
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Environmental Impact -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <button class="topic-header w-full p-6 flex justify-between items-center bg-nature">
+                <h2 class="text-2xl font-bold text-emerald-800">Dampak Lingkungan</h2>
+                <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="topic-content max-h-0 overflow-hidden transition-all duration-500">
+                <div class="p-6">
+                  <!-- Impact Stats -->
+                  <div class="stats-grid grid md:grid-cols-3 gap-6">
+                    <div class="stat-card text-center p-6 bg-gray-50 rounded-xl">
+                      <div class="stat-circle mx-auto mb-4 w-32 h-32 rounded-full border-8 border-nature flex items-center justify-center">
+                        <span class="text-3xl font-bold text-nature text-emerald-800">75%</span>
+                      </div>
+                      <h3 class="text-lg font-semibold  text-emerald-800">Pengurangan Emisi</h3>
+                      <p class="text-sm text-gray-600 mt-2">Dibanding produksi konvensional</p>
+                    </div>
+                    <div class="stat-card text-center p-6 bg-gray-50 rounded-xl">
+                      <div class="stat-circle mx-auto mb-4 w-32 h-32 rounded-full border-8 border-nature flex items-center justify-center">
+                        <span class="text-3xl font-bold text-nature text-emerald-800">90%</span>
+                      </div>
+                      <h3 class="text-lg font-semibold  text-emerald-800">Hemat Air</h3>
+                      <p class="text-sm text-gray-600 mt-2">Melalui sistem daur ulang</p>
+                    </div>
+                    <div class="stat-card text-center p-6 bg-gray-50 rounded-xl">
+                      <div class="stat-circle mx-auto mb-4 w-32 h-32 rounded-full border-8 border-nature flex items-center justify-center">
+                        <span class="text-3xl font-bold text-nature text-emerald-800">95%</span>
+                      </div>
+                      <h3 class="text-lg font-semibold \ text-emerald-800">Daur Ulang</h3>
+                      <p class="text-sm text-gray-600 mt-2">Material dapat didaur ulang</p>
+                    </div>
+                  </div>
+  
+                  <!-- Impact Details -->
+                  <div class="mt-8">
+                    <h3 class="text-xl font-semibold text-nature mb-4 text-emerald-800">Kontribusi Positif</h3>
+                    <div class="impact-tabs">
+                      <div class="flex border-b">
+                        <button class="impact-tab active px-6 py-3 text-gray-600 border-b-2 border-transparent">Lingkungan</button>
+                        <button class="impact-tab px-6 py-3 text-gray-600 border-b-2 border-transparent">Sosial</button>
+                        <button class="impact-tab px-6 py-3 text-gray-600 border-b-2 border-transparent">Ekonomi</button>
+                      </div>
+                      <div class="impact-content p-4">
+                        <div class="impact-panel active">
+                          <ul class="space-y-3">
+                            <li class="flex items-start">
+                              <span class="text-nature mr-3">✓</span>
+                              <p class="text-gray-600">Pengurangan emisi gas rumah kaca melalui proses produksi efisien</p>
+                            </li>
+                            <li class="flex items-start">
+                              <span class="text-nature mr-3">✓</span>
+                              <p class="text-gray-600">Konservasi air melalui sistem daur ulang canggih</p>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="impact-panel hidden">
+                          <ul class="space-y-3">
+                            <li class="flex items-start">
+                              <span class="text-nature mr-3">✓</span>
+                              <p class="text-gray-600">Kondisi kerja yang lebih baik bagi petani dan pekerja</p>
+                            </li>
+                            <li class="flex items-start">
+                              <span class="text-nature mr-3">✓</span>
+                              <p class="text-gray-600">Pemberdayaan komunitas lokal</p>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="impact-panel hidden">
+                          <ul class="space-y-3">
+                            <li class="flex items-start">
+                              <span class="text-nature mr-3">✓</span>
+                              <p class="text-gray-600">Penciptaan lapangan kerja berkelanjutan</p>
+                            </li>
+                            <li class="flex items-start">
+                              <span class="text-nature mr-3">✓</span>
+                              <p class="text-gray-600">Pengembangan ekonomi lokal</p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Quiz -->
+          <section class="py-20 px-4">
+            <h2 class="text-4xl font-bold text-center text-emerald-800 mb-12">Tantangan Pengetahuan</h2>
+            <div id="quiz" class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-lg">
+                <div id="question-container" class="mb-6 text-lg font-semibold text-gray-800"></div>
+                <div id="options-container" class="space-y-4"></div>
+                <button id="nextQuestion" class="mt-6 w-full py-3 bg-emerald-600 text-white rounded-lg font-bold hover:bg-emerald-700 transition-colors">Pertanyaan Berikutnya</button>
+                <p id="score" class="text-center mt-4 text-gray-700">Skor: 0</p>
+            </div>
+        </section>
+        
+      </section>
+    </div>
+    <script type="module" src="edu.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+  const preloader = document.getElementById("preloader");
+  setTimeout(function () {
+    preloader.classList.add("fade-out");
+    setTimeout(function () {
+      preloader.style.display = "none";
+    }, 500); // Tunggu 0.5 detik sebelum menghilangkan preloader
+  }, 2000); // Tunggu 2 detik sebelum memulai transisi
+});
+      var swiper = new Swiper(".mySwiper", {
+          loop: true,
+          autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+          navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+          },
+      });
+
+       // Scroll ke bawah saat panah ditekan
+       document.querySelector(".scroll-indicator").addEventListener("click", function() {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: "smooth"
+            });
+        });
+
+        // quiz
+        const questions = [
+            { question: "Berapa persen emisi karbon global yang disumbangkan oleh industri fashion?", options: ["5%", "10%", "15%", "20%"], correct: 1 },
+            { question: "Berapa liter air yang dibutuhkan untuk memproduksi satu kaos katun?", options: ["1,000 liter", "1,500 liter", "2,700 liter", "3,000 liter"], correct: 2 },
+            { question: "Berapa persen tekstil bekas yang dapat didaur ulang?", options: ["75%", "85%", "95%", "100%"], correct: 2 },
+        ];
+        
+        let currentQuestion = 0;
+        let score = 0;
+        
+        function showQuestion() {
+            const questionContainer = document.getElementById("question-container");
+            const optionsContainer = document.getElementById("options-container");
+            questionContainer.textContent = questions[currentQuestion].question;
+            optionsContainer.innerHTML = "";
+            
+            questions[currentQuestion].options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.classList.add("block", "w-full", "p-3", "text-left", "bg-gray-100", "rounded-lg", "hover:bg-emerald-100");
+                button.textContent = option;
+                button.onclick = () => checkAnswer(index, button);
+                optionsContainer.appendChild(button);
+            });
+        }
+        
+        function checkAnswer(selectedIndex, button) {
+            if (selectedIndex === questions[currentQuestion].correct) {
+                score += 10;
+                button.classList.add("bg-green-300");
+            } else {
+                button.classList.add("bg-red-300");
+            }
+            document.getElementById("score").textContent = `Skor: ${score}`;
+            document.querySelectorAll("#options-container button").forEach(btn => btn.disabled = true);
+        }
+        
+        document.getElementById("nextQuestion").addEventListener("click", () => {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                document.getElementById("quiz").innerHTML = `<h3 class='text-center text-2xl font-bold text-emerald-800'>Kuis Selesai!</h3><p class='text-center text-gray-700'>Skor akhir: ${score}</p>`;
+            }
+        });
+        
+        showQuestion();
+  </script>
+  <script src="edu.js"></script>
+  </body>
+</html>
